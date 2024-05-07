@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Enjoy seamless video playback with Online Video Player. Stream your favorite videos in high quality.">
+<meta name="keywords" content="video player, online video, video streaming, HD video player, code by akborana , akay , Akborana">
+<meta property="og:title" content="Online Video Player">
+<meta property="og:description" content="Stream your favorite videos in high quality with our Online Video Player.ONLY PLAY DIRECT LINK">
+<meta property="og:image" content="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="YOUR_WEBSITE_URL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Video Player">
+<meta name="twitter:description" content="Enjoy seamless video playback with the best online video player. Stream in HD quality.">
+<meta name="twitter:image" content="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+<title>Online Video Player</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 50px auto 0;
+  }
+
+  #video-player {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  #videoUrl {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    background-color: #008cba;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #007ba7;
+  }
+
+  video {
+    width: 100%;
+    max-width: 720px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: #20232a;
+    color: #61dafb;
+    border-top: 2px solid #61dafb;
+  }
+
+  .footer p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+
+  .footer a {
+    color: #61dafb;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: #ffffff;
+  }
+
+  .footer i {
+    margin-right: 5px;
+  }
+
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #61dafb;
+  }
+
+</style>
+</head>
+<body>
+
+<main>
+  <section id="video-player">
+    <input type="text" id="videoUrl" placeholder="Paste video URL here">
+    <button id="playBtn" aria-label="Play video">Play Video</button>
+    <div class="control-row">
+      <button id="volumeUp"><i class="fas fa-volume-up"></i> Volume Up</button>
+      <button id="volumeDown"><i class="fas fa-volume-down"></i> Volume Down</button>
+      <button id="brightnessUp"><i class="fas fa-sun"></i> Brightness Up</button>
+      <button id="brightnessDown"><i class="fas fa-moon"></i> Brightness Down</button>
+    </div>
+    <div id="errorMsg"></div>
+    <video id="myVideo" controls style="display: none;">Your browser does not support the video tag.</video>
+  </section>
+
+  <section class="footer">
+    <p>Code by Akborana | Find me here:</p>
+    <a href="https://instagram.com/a.k.borana_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+    <a href="https://telegram.me/akborana" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+  </section>
+</main>
+
+<script>
+  const playBtn = document.getElementById('playBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  const videoUrl = document.getElementById('videoUrl');
+  const video = document.getElementById('myVideo');
+  const volumeUp = document.getElementById('volumeUp');
+  const volumeDown = document.getElementById('volumeDown');
+  const brightnessUp = document.getElementById('brightnessUp');
+  const brightnessDown = document.getElementById('brightnessDown');
+  
+  let currentBrightness = 100;
+
+  playBtn.addEventListener('click', () => {
+    if (!videoUrl.value) {
+      errorMsg.textContent = "Please enter a video URL.";
+      video.style.display = 'none';
+      return;
+    }
+
+    video.src = videoUrl.value;
+    video.style.display = 'block';
+    video.load();
+    video.play().catch(e => {
+      errorMsg.textContent = "Error playing the video. Please check the URL.";
+      video.style.display = 'none';
+      console.error("Error playing video: ", e);
+    });
+  });
+
+ volumeUp.addEventListener('click', () => {
+    video.volume = Math.min(1, video.volume + 0.1);
+  });
+
+  volumeDown.addEventListener('click', () => {
+    video.volume = Math.max(0, video.volume - 0.1);
+  });
+
+  brightnessUp.addEventListener('click', () => {
+    if (currentBrightness <= 190) {
+      currentBrightness += 10;
+      video.style.filter = `brightness(${currentBrightness}%)`;
+    }
+  });
+
+  brightnessDown.addEventListener('click', () => {
+    if (currentBrightness >= 10) {
+      currentBrightness -= 10;
+      video.style.filter = `brightness(${currentBrightness}%)`;
+    }
+  });
+</script>
+
+</body>
+  </html>
+  
