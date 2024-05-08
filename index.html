@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enjoy seamless video playback with Online Video Player. Stream your favorite videos in high quality.">
+  <meta name="keywords" content="video player, online video, video streaming, HD video player, code by akborana , akay , Akborana">
+  <meta property="og:title" content="Online Video Player">
+  <meta property="og:description" content="Stream your favorite videos in high quality with our Online Video Player.ONLY PLAY DIRECT LINK">
+  <meta property="og:image" content="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://akplayer.netlify.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Video Player">
+  <meta name="twitter:description" content="Enjoy seamless video playback with the best online video player. Stream in HD quality.">
+  <meta name="twitter:image" content="https://graph.org/file/c025eefa4eeab0b5a6e23.jpg">
+  <title>Online Video Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main>
+  <section id="video-player">
+    <input type="text" id="videoUrl" placeholder="Paste video URL here">
+    <button id="playBtn" aria-label="Play video">Play Video</button>
+    <div id="errorMsg"></div>
+    <video id="myVideo" controls style="display: none;">Your browser does not support the video tag.</video>
+    <div class="control-row">
+      <button id="volumeUp"><i class="fas fa-volume-up"></i> Volume Up</button>
+      <button id="volumeDown"><i class="fas fa-volume-down"></i> Volume Down</button>
+      <button id="brightnessUp"><i class="fas fa-sun"></i> Brightness Up</button>
+      <button id="brightnessDown"><i class="fas fa-moon"></i> Brightness Down</button>
+      <!-- Dark Mode Button -->
+      <button id="darkModeBtn" aria-label="Toggle dark mode" class="dark-mode-btn"><i class="fas fa-moon"></i></button>
+    </div>
+  </section>
+
+  <section class="footer">
+    <p>Code by Akborana | Find me here:</p>
+    <a href="https://instagram.com/a.k.borana_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+    <a href="https://telegram.me/akborana" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

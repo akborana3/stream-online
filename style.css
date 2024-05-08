@@ -1,0 +1,164 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  max-width: 800px;
+  margin: 50px auto 0;
+}
+
+#video-player {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#videoUrl {
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #008cba;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007ba7;
+}
+
+video {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #20232a;
+  color: #61dafb;
+  border-top: 2px solid #61dafb;
+}
+
+.footer p {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.footer a {
+  color: #61dafb;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+.footer i {
+  margin-right: 5px;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #61dafb;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+  background-color: #555;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode main {
+  color: #ddd; /* Lighter text in dark mode for better readability */
+}
+
+body.dark-mode #video-player {
+  background-color: #424242;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Lighter shadow for contrast */
+}
+
+body.dark-mode #videoUrl {
+  background-color: #525252;
+  color: #ddd;
+  border-color: #777;
+}
+
+body.dark-mode button {
+  background-color: #006494;
+}
+
+body.dark-mode button:hover {
+  background-color: #00507c;
+}
+
+body.dark-mode video {
+  /* No specific changes here, but you can adjust if needed, such as border color */
+}
+
+body.dark-mode .footer {
+  background-color: #20232a; /* Retained from your original, it's already suitable */
+  color: #61dafb; /* Retained, ensuring links are visible */
+  border-top-color: #61dafb; /* Ensures the top border remains visible */
+}
+
+body.dark-mode .footer a {
+  color: #61dafb; /* Retaining your original style, but ensure it's visible */
+}
+
+body.dark-mode .footer a:hover {
+  color: #ffffff;
+}
+
+body.dark-mode .dark-mode-btn:hover {
+  background-color: #555;
+}
