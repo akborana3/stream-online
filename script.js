@@ -18,7 +18,22 @@ playBtn.addEventListener('click', () => {
     return;
   }
 
-  video.src = videoUrl.value;
+  if (videoUrl.value.includes('akplayer.netlify.app/watch')) {
+    // If the URL is from your site
+    const params = new URLSearchParams(videoUrl.value.split('?')[1]);
+    const videoSrc = params.get('watch');
+    if (videoSrc) {
+      video.src = videoSrc;
+    } else {
+      errorMsg.textContent = "Invalid video URL.";
+      video.style.display = 'none';
+      return;
+    }
+  } else {
+    // For other video formats, set the source directly
+    video.src = videoUrl.value;
+  }
+
   video.style.display = 'block';
   video.load();
   video.play().catch(e => {
