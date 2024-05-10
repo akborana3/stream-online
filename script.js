@@ -11,6 +11,22 @@ const body = document.body;
 
 let currentBrightness = 100;
 
+// Check if there's a query parameter in the URL
+const queryParams = new URLSearchParams(window.location.search);
+const watchParam = queryParams.get('watch');
+
+// If there's a 'watch' parameter in the URL, use its value as the video source
+if (watchParam) {
+  video.src = watchParam;
+  video.style.display = 'block';
+  video.load();
+  video.play().catch(e => {
+    errorMsg.textContent = "Error playing the video. Please check the URL.";
+    video.style.display = 'none';
+    console.error("Error playing video: ", e);
+  });
+}
+
 playBtn.addEventListener('click', () => {
   if (!videoUrl.value) {
     errorMsg.textContent = "Please enter a video URL.";
@@ -68,3 +84,4 @@ brightnessDown.addEventListener('click', () => {
 darkModeBtn.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
 });
+  
