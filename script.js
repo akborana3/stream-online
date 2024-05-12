@@ -13,7 +13,7 @@ let currentBrightness = 100;
 
 // Check if there's a query parameter in the URL
 const queryParams = new URLSearchParams(window.location.search);
-const vdoUrl = queryParams.get('play');
+const vdoUrl = queryParams.get('watch');
 if (vdoUrl && !videoUrl.value) {
   console.log('Video URL from search param is: ', vdoUrl)
   video.src = decodeURIComponent(vdoUrl);
