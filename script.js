@@ -13,16 +13,13 @@ let currentBrightness = 100;
 
 // Check if there's a query parameter in the URL
 const queryParams = new URLSearchParams(window.location.search);
-const watchParam = queryParams.get('watch');
-
-// If there's a 'watch' parameter in the URL, use its value as the video source
-if (watchParam) {
-  video.src = watchParam;
+const vdoUrl = queryParams.get('play');
+if (vdoUrl && !videoUrl.value) {
+  console.log('Video URL from search param is: ', vdoUrl)
+  video.src = decodeURIComponent(vdoUrl);
   video.style.display = 'block';
   video.load();
   video.play().catch(e => {
-    errorMsg.textContent = "Error playing the video. Please check the URL.";
-    video.style.display = 'none';
     console.error("Error playing video: ", e);
   });
 }
@@ -34,21 +31,10 @@ playBtn.addEventListener('click', () => {
     return;
   }
 
-  if (videoUrl.value.includes('akplayer.netlify.app/watch')) {
-    // If the URL is from your site
-    const params = new URLSearchParams(videoUrl.value.split('?')[1]);
-    const videoSrc = params.get('watch');
-    if (videoSrc) {
-      video.src = videoSrc;
-    } else {
-      errorMsg.textContent = "Invalid video URL.";
-      video.style.display = 'none';
-      return;
-    }
-  } else {
-    // For other video formats, set the source directly
-    video.src = videoUrl.value;
-  }
+  // For other video formats, set the source directly
+  video.src = videoUrl.value;
+  console.log(videoUrl.value)
+
 
   video.style.display = 'block';
   video.load();
@@ -84,4 +70,3 @@ brightnessDown.addEventListener('click', () => {
 darkModeBtn.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
 });
-  
