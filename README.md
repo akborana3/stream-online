@@ -1,5 +1,9 @@
 # stream-online
 Stream any direct download link online
 
-checkout 
+## checkout 
 https://akplayer.netlify.app
+
+for direct link playing 
+# https://akplayer.netlify.app/?play=
+your link 
