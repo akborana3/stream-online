@@ -5,5 +5,5 @@ Stream any direct download link online
 https://akplayer.netlify.app
 
 for direct link playing 
-# https://akplayer.netlify.app/?play=
+# https://akplayer.netlify.app/?watch=
 your link 
